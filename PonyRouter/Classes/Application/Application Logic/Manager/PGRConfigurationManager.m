@@ -7,7 +7,17 @@
 //
 
 #import "PGRConfigurationManager.h"
+#import "PGRConfiguration.h"
 
 @implementation PGRConfigurationManager
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.configure = [PGRConfiguration defaultConfiguration];
+    }
+    return self;
+}
 
 @end

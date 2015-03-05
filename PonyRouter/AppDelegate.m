@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "PGRApplication.h"
 #import "PGRNode.h"
+#import "PGRConfiguration.h"
 
 
 @interface AppDelegate ()
@@ -19,7 +20,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [PGRApplication swizzleUIApplicationMethod];
+    [UIApplication pgr_swizzleUIApplicationMethod];
     [self addViewControllerNode];
     return YES;
 }
@@ -58,6 +59,7 @@
 #pragma mark - Node
 
 - (void)addViewControllerNode {
+//    [[[PGRApplication sharedInstance] configure] setSchemes:@[@"demoApp"]];
     PGRNode *node = [[PGRNode alloc] init];
     node.identifier = @"sayhello";
     [node setExecutingBlock:^(NSURL *sourceURL, NSDictionary *params, NSObject *sourceObject) {

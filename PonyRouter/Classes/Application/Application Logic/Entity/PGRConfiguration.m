@@ -11,7 +11,10 @@
 @implementation PGRConfiguration
 
 + (PGRConfiguration *)defaultConfiguration {
-    return nil;
+    PGRConfiguration *configure = [[PGRConfiguration alloc] init];
+    configure.schemes = nil;
+    configure.URLStyle = PGRURLStyleQueryString;
+    return configure;
 }
 
 @end

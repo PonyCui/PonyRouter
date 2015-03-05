@@ -12,6 +12,7 @@
 #import "PGRCore.h"
 #import "PGRCore+PGRPrivate.h"
 #import "PGRNode.h"
+#import "PGRConfiguration.h"
 
 static BOOL swizzled;
 
@@ -54,7 +55,10 @@ static BOOL swizzled;
 }
 
 - (BOOL)canOpenURL:(NSURL *)URL {
-    return [self.core.nodeManager nodeForURL:URL] != nil;
+    return
+    [self.core.nodeManager nodeForURL:URL] != nil &&
+    (self.core.configurationManager.configure.schemes == nil ||
+    [self.core.configurationManager.configure.schemes containsObject:URL.scheme]);
 }
 
 - (void)openURL:(NSURL *)URL {
@@ -75,13 +79,13 @@ static BOOL swizzled;
 
 @end
 
-@implementation PGRApplication (Swizzle)
+@implementation UIApplication (Swizzle)
 
-+ (void)swizzleUIApplicationMethod {
++ (void)pgr_swizzleUIApplicationMethod {
     swizzled = YES;
     Method origMethod = class_getInstanceMethod([UIApplication class],
                                                 @selector(openURL:));
-    Method replacingMethod = class_getInstanceMethod([PGRApplication class],
+    Method replacingMethod = class_getInstanceMethod([UIApplication class],
                                                      @selector(swizzle_PGRopenURL:));
     method_exchangeImplementations(origMethod, replacingMethod);
 }

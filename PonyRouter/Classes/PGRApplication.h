@@ -31,8 +31,8 @@
 
 @end
 
-@interface PGRApplication (Swizzle)
+@interface UIApplication (Swizzle)
 
-+ (void)swizzleUIApplicationMethod;
++ (void)pgr_swizzleUIApplicationMethod;
 
 @end
