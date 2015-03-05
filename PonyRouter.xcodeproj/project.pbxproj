@@ -15,6 +15,12 @@
 		6307385A1AA84D890003F1D3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 630738581AA84D890003F1D3 /* LaunchScreen.xib */; };
 		630738661AA84D890003F1D3 /* PonyRouterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 630738651AA84D890003F1D3 /* PonyRouterTests.m */; };
 		630738751AA84EFB0003F1D3 /* PGRApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 630738741AA84EFB0003F1D3 /* PGRApplication.m */; };
+		630738781AA84F590003F1D3 /* PGRCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 630738771AA84F590003F1D3 /* PGRCore.m */; };
+		6307387D1AA8504F0003F1D3 /* PGRNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6307387C1AA8504F0003F1D3 /* PGRNode.m */; };
+		630738801AA8505D0003F1D3 /* PGRNodeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6307387F1AA8505D0003F1D3 /* PGRNodeManager.m */; };
+		630738831AA851000003F1D3 /* PGRConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 630738821AA851000003F1D3 /* PGRConfiguration.m */; };
+		630738861AA851710003F1D3 /* PGRConfigurationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 630738851AA851710003F1D3 /* PGRConfigurationManager.m */; };
+		630738891AA852D30003F1D3 /* PGRCore+PGRPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 630738881AA852D30003F1D3 /* PGRCore+PGRPrivate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +49,18 @@
 		630738651AA84D890003F1D3 /* PonyRouterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PonyRouterTests.m; sourceTree = "<group>"; };
 		630738731AA84EFB0003F1D3 /* PGRApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGRApplication.h; sourceTree = "<group>"; };
 		630738741AA84EFB0003F1D3 /* PGRApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGRApplication.m; sourceTree = "<group>"; };
+		630738761AA84F590003F1D3 /* PGRCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGRCore.h; sourceTree = "<group>"; };
+		630738771AA84F590003F1D3 /* PGRCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGRCore.m; sourceTree = "<group>"; };
+		6307387B1AA8504F0003F1D3 /* PGRNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGRNode.h; sourceTree = "<group>"; };
+		6307387C1AA8504F0003F1D3 /* PGRNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGRNode.m; sourceTree = "<group>"; };
+		6307387E1AA8505D0003F1D3 /* PGRNodeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGRNodeManager.h; sourceTree = "<group>"; };
+		6307387F1AA8505D0003F1D3 /* PGRNodeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGRNodeManager.m; sourceTree = "<group>"; };
+		630738811AA851000003F1D3 /* PGRConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGRConfiguration.h; sourceTree = "<group>"; };
+		630738821AA851000003F1D3 /* PGRConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGRConfiguration.m; sourceTree = "<group>"; };
+		630738841AA851710003F1D3 /* PGRConfigurationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGRConfigurationManager.h; sourceTree = "<group>"; };
+		630738851AA851710003F1D3 /* PGRConfigurationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGRConfigurationManager.m; sourceTree = "<group>"; };
+		630738871AA852D30003F1D3 /* PGRCore+PGRPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PGRCore+PGRPrivate.h"; sourceTree = "<group>"; };
+		630738881AA852D30003F1D3 /* PGRCore+PGRPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGRCore+PGRPrivate.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +163,10 @@
 		630738711AA84ED40003F1D3 /* Application Interface */ = {
 			isa = PBXGroup;
 			children = (
+				630738761AA84F590003F1D3 /* PGRCore.h */,
+				630738771AA84F590003F1D3 /* PGRCore.m */,
+				630738871AA852D30003F1D3 /* PGRCore+PGRPrivate.h */,
+				630738881AA852D30003F1D3 /* PGRCore+PGRPrivate.m */,
 			);
 			path = "Application Interface";
 			sourceTree = "<group>";
@@ -152,8 +174,32 @@
 		630738721AA84ED40003F1D3 /* Application Logic */ = {
 			isa = PBXGroup;
 			children = (
+				630738791AA850420003F1D3 /* Manager */,
+				6307387A1AA850420003F1D3 /* Entity */,
 			);
 			path = "Application Logic";
+			sourceTree = "<group>";
+		};
+		630738791AA850420003F1D3 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				6307387E1AA8505D0003F1D3 /* PGRNodeManager.h */,
+				6307387F1AA8505D0003F1D3 /* PGRNodeManager.m */,
+				630738841AA851710003F1D3 /* PGRConfigurationManager.h */,
+				630738851AA851710003F1D3 /* PGRConfigurationManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		6307387A1AA850420003F1D3 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				6307387B1AA8504F0003F1D3 /* PGRNode.h */,
+				6307387C1AA8504F0003F1D3 /* PGRNode.m */,
+				630738811AA851000003F1D3 /* PGRConfiguration.h */,
+				630738821AA851000003F1D3 /* PGRConfiguration.m */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +304,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				630738751AA84EFB0003F1D3 /* PGRApplication.m in Sources */,
+				6307387D1AA8504F0003F1D3 /* PGRNode.m in Sources */,
+				630738861AA851710003F1D3 /* PGRConfigurationManager.m in Sources */,
 				630738521AA84D890003F1D3 /* ViewController.m in Sources */,
 				6307384F1AA84D890003F1D3 /* AppDelegate.m in Sources */,
 				6307384C1AA84D890003F1D3 /* main.m in Sources */,
+				630738891AA852D30003F1D3 /* PGRCore+PGRPrivate.m in Sources */,
+				630738781AA84F590003F1D3 /* PGRCore.m in Sources */,
+				630738831AA851000003F1D3 /* PGRConfiguration.m in Sources */,
+				630738801AA8505D0003F1D3 /* PGRNodeManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

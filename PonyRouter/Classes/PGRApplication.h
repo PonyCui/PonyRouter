@@ -8,9 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+@class PGRConfiguration;
+
 /**
  *  PGR means 'Pony Global Router'
+ *  PGR accepts PathInfo style URL (eg. wechat://sayhello/key1/value1/key2/value2....)
+ *  PGR also accepts QueryString style URL (eg. wechat://sayhello/?key1=value1&key2=value2...)
  */
 @interface PGRApplication : NSObject
+
+@property (nonatomic, readwrite) PGRConfiguration *configure;
+
++ (PGRApplication *)sharedInstance;
+
+- (void)handleOpenURL:(NSURL *)openURL;
 
 @end
