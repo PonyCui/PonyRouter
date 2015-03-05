@@ -10,4 +10,6 @@
 
 @implementation PGRCore (PGRPrivate)
 
+@dynamic nodeManager, configurationManager;
+
 @end

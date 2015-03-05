@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^PGRNodeExecutingBlock)();
+typedef void(^PGRNodeExecutingBlock)(NSURL *sourceURL, NSDictionary *params, NSObject *sourceObject);
 
 @interface PGRNode : NSObject
 

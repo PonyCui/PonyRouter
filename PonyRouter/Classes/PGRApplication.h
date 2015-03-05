@@ -27,4 +27,6 @@
 
 - (void)openURL:(NSURL *)URL;
 
+- (void)openURL:(NSURL *)URL sourceObject:(NSObject *)sourceObject;
+
 @end

@@ -55,12 +55,16 @@
 }
 
 - (void)openURL:(NSURL *)URL {
+    [self openURL:URL sourceObject:nil];
+}
+
+- (void)openURL:(NSURL *)URL sourceObject:(NSObject *)sourceObject {
     PGRNode *node = [self.core.nodeManager nodeForURL:URL];
     if (node == nil) {
         [[UIApplication sharedApplication] openURL:URL];
     }
     else {
-        node.executingBlock();
+        node.executingBlock(URL, nil, sourceObject);
     }
 }
 

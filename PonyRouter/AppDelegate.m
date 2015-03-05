@@ -59,7 +59,7 @@
 - (void)addViewControllerNode {
     PGRNode *node = [[PGRNode alloc] init];
     node.identifier = @"sayhello";
-    [node setExecutingBlock:^{
+    [node setExecutingBlock:^(NSURL *sourceURL, NSDictionary *params, NSObject *sourceObject) {
         UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UIViewController *viewController = [storyBoard instantiateViewControllerWithIdentifier:@"ViewController"];
         [(id)[[[[UIApplication sharedApplication] delegate] window] rootViewController]
