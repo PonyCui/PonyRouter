@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <objc/runtime.h>
 #import "PGRApplication.h"
 #import "PGRCore.h"
 #import "PGRCore+PGRPrivate.h"
 #import "PGRNode.h"
+
+static BOOL swizzled;
 
 @interface PGRApplication ()
 
@@ -61,10 +64,34 @@
 - (void)openURL:(NSURL *)URL sourceObject:(NSObject *)sourceObject {
     PGRNode *node = [self.core.nodeManager nodeForURL:URL];
     if (node == nil) {
-        [[UIApplication sharedApplication] openURL:URL];
+        if (!swizzled) {
+            [[UIApplication sharedApplication] openURL:URL];
+        }
     }
     else {
         node.executingBlock(URL, nil, sourceObject);
+    }
+}
+
+@end
+
+@implementation PGRApplication (Swizzle)
+
++ (void)swizzleUIApplicationMethod {
+    swizzled = YES;
+    Method origMethod = class_getInstanceMethod([UIApplication class],
+                                                @selector(openURL:));
+    Method replacingMethod = class_getInstanceMethod([PGRApplication class],
+                                                     @selector(swizzle_PGRopenURL:));
+    method_exchangeImplementations(origMethod, replacingMethod);
+}
+
+- (void)swizzle_PGRopenURL:(NSURL *)URL {
+    if ([[PGRApplication sharedInstance] canOpenURL:URL]) {
+        [[PGRApplication sharedInstance] openURL:URL];
+    }
+    else {
+        [self swizzle_PGRopenURL:URL];
     }
 }
 

@@ -30,3 +30,9 @@
 - (void)openURL:(NSURL *)URL sourceObject:(NSObject *)sourceObject;
 
 @end
+
+@interface PGRApplication (Swizzle)
+
++ (void)swizzleUIApplicationMethod;
+
+@end

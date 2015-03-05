@@ -19,6 +19,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [PGRApplication swizzleUIApplicationMethod];
     [self addViewControllerNode];
     return YES;
 }
