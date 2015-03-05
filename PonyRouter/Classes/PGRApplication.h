@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class PGRConfiguration;
+@class PGRConfiguration, PGRNode;
 
 /**
  *  PGR means 'Pony Global Router'
@@ -21,6 +21,10 @@
 
 + (PGRApplication *)sharedInstance;
 
-- (void)handleOpenURL:(NSURL *)openURL;
+- (void)addNode:(PGRNode *)node;
+
+- (BOOL)canOpenURL:(NSURL *)URL;
+
+- (void)openURL:(NSURL *)URL;
 
 @end

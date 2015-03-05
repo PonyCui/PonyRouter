@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "PGRApplication.h"
+#import "PGRNode.h"
+
 
 @interface AppDelegate ()
 
@@ -16,7 +19,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [self addViewControllerNode];
     return YES;
 }
 
@@ -40,6 +43,29 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    if ([[PGRApplication sharedInstance] canOpenURL:url]) {
+        [[PGRApplication sharedInstance] openURL:url];
+    }
+    return YES;
+}
+
+
+
+#pragma mark - Node
+
+- (void)addViewControllerNode {
+    PGRNode *node = [[PGRNode alloc] init];
+    node.identifier = @"sayhello";
+    [node setExecutingBlock:^{
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController *viewController = [storyBoard instantiateViewControllerWithIdentifier:@"ViewController"];
+        [(id)[[[[UIApplication sharedApplication] delegate] window] rootViewController]
+         pushViewController:viewController animated:YES];
+    }];
+    [[PGRApplication sharedInstance] addNode:node];
 }
 
 @end

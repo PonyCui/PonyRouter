@@ -28,4 +28,6 @@ typedef void(^PGRNodeExecutingBlock)();
  */
 @property (nonatomic, copy) PGRNodeExecutingBlock executingBlock;
 
+- (void)setExecutingBlock:(PGRNodeExecutingBlock)executingBlock;
+
 @end

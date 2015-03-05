@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "PGRApplication.h"
 
 @interface ViewController ()
 
@@ -22,6 +23,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)handleButtonTapped:(id)sender {
+    NSURL *URL = [NSURL URLWithString:@"demoApp://sayhello/"];
+    [[PGRApplication sharedInstance] openURL:URL];
 }
 
 @end
