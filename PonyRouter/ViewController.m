@@ -26,7 +26,7 @@
 }
 
 - (IBAction)handleButtonTapped:(id)sender {
-    NSURL *URL = [NSURL URLWithString:@"demoApp://sayhello/"];
+    NSURL *URL = [NSURL URLWithString:@"demoApp://sayhello/?k1=v1&k2=v2"];
     [[UIApplication sharedApplication] openURL:URL];
 //    [[PGRApplication sharedInstance] openURL:URL];
 }

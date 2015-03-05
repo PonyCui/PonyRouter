@@ -21,6 +21,8 @@
 		630738831AA851000003F1D3 /* PGRConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 630738821AA851000003F1D3 /* PGRConfiguration.m */; };
 		630738861AA851710003F1D3 /* PGRConfigurationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 630738851AA851710003F1D3 /* PGRConfigurationManager.m */; };
 		630738891AA852D30003F1D3 /* PGRCore+PGRPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 630738881AA852D30003F1D3 /* PGRCore+PGRPrivate.m */; };
+		F089B3051AA89CE700A6D091 /* NSURL+PGRURLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F089B3041AA89CE700A6D091 /* NSURL+PGRURLParser.m */; };
+		F089B3081AA89D1300A6D091 /* UIApplication+PGRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = F089B3071AA89D1300A6D091 /* UIApplication+PGRSwizzle.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,10 @@
 		630738851AA851710003F1D3 /* PGRConfigurationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGRConfigurationManager.m; sourceTree = "<group>"; };
 		630738871AA852D30003F1D3 /* PGRCore+PGRPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PGRCore+PGRPrivate.h"; sourceTree = "<group>"; };
 		630738881AA852D30003F1D3 /* PGRCore+PGRPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGRCore+PGRPrivate.m"; sourceTree = "<group>"; };
+		F089B3031AA89CE700A6D091 /* NSURL+PGRURLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+PGRURLParser.h"; sourceTree = "<group>"; };
+		F089B3041AA89CE700A6D091 /* NSURL+PGRURLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+PGRURLParser.m"; sourceTree = "<group>"; };
+		F089B3061AA89D1300A6D091 /* UIApplication+PGRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+PGRSwizzle.h"; sourceTree = "<group>"; };
+		F089B3071AA89D1300A6D091 /* UIApplication+PGRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+PGRSwizzle.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +160,7 @@
 		630738701AA84ED40003F1D3 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				F089B3011AA89CD200A6D091 /* Common */,
 				630738711AA84ED40003F1D3 /* Application Interface */,
 				630738721AA84ED40003F1D3 /* Application Logic */,
 			);
@@ -200,6 +207,25 @@
 				630738821AA851000003F1D3 /* PGRConfiguration.m */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		F089B3011AA89CD200A6D091 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F089B3021AA89CD200A6D091 /* Categories */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F089B3021AA89CD200A6D091 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				F089B3031AA89CE700A6D091 /* NSURL+PGRURLParser.h */,
+				F089B3041AA89CE700A6D091 /* NSURL+PGRURLParser.m */,
+				F089B3061AA89D1300A6D091 /* UIApplication+PGRSwizzle.h */,
+				F089B3071AA89D1300A6D091 /* UIApplication+PGRSwizzle.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,7 +334,9 @@
 				630738861AA851710003F1D3 /* PGRConfigurationManager.m in Sources */,
 				630738521AA84D890003F1D3 /* ViewController.m in Sources */,
 				6307384F1AA84D890003F1D3 /* AppDelegate.m in Sources */,
+				F089B3051AA89CE700A6D091 /* NSURL+PGRURLParser.m in Sources */,
 				6307384C1AA84D890003F1D3 /* main.m in Sources */,
+				F089B3081AA89D1300A6D091 /* UIApplication+PGRSwizzle.m in Sources */,
 				630738891AA852D30003F1D3 /* PGRCore+PGRPrivate.m in Sources */,
 				630738781AA84F590003F1D3 /* PGRCore.m in Sources */,
 				630738831AA851000003F1D3 /* PGRConfiguration.m in Sources */,

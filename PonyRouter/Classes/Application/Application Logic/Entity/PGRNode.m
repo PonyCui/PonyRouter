@@ -10,4 +10,13 @@
 
 @implementation PGRNode
 
+- (instancetype)initWithIdentifier:(NSString *)identifier executingBlock:(PGRNodeExecutingBlock)executingBlock {
+    self = [super init];
+    if (self) {
+        self.identifier = identifier;
+        self.executingBlock = executingBlock;
+    }
+    return self;
+}
+
 @end

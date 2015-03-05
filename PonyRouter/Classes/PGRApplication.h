@@ -7,6 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UIApplication+PGRSwizzle.h"
+#import "PGRNode.h"
+#import "PGRConfiguration.h"
+
+#ifndef PGR
+    #define PGR 1
+#endif
 
 @class PGRConfiguration, PGRNode;
 
@@ -14,6 +21,7 @@
  *  PGR means 'Pony Global Router'
  *  PGR accepts PathInfo style URL (eg. wechat://sayhello/key1/value1/key2/value2....)
  *  PGR also accepts QueryString style URL (eg. wechat://sayhello/?key1=value1&key2=value2...)
+ *  Default style = QueryString
  */
 @interface PGRApplication : NSObject
 
@@ -28,11 +36,5 @@
 - (void)openURL:(NSURL *)URL;
 
 - (void)openURL:(NSURL *)URL sourceObject:(NSObject *)sourceObject;
-
-@end
-
-@interface UIApplication (Swizzle)
-
-+ (void)pgr_swizzleUIApplicationMethod;
 
 @end

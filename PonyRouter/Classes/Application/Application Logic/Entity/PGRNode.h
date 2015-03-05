@@ -30,4 +30,6 @@ typedef void(^PGRNodeExecutingBlock)(NSURL *sourceURL, NSDictionary *params, NSO
 
 - (void)setExecutingBlock:(PGRNodeExecutingBlock)executingBlock;
 
+- (instancetype)initWithIdentifier:(NSString *)identifier executingBlock:(PGRNodeExecutingBlock)executingBlock;
+
 @end
