@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/PonyGroup/PonyRouter.git" }
 
-  s.source_files  = "Classes", "Classes/**", "Classes/**/**", "Classes/**/**/**", "Classes/**/**/**/**"
+  s.source_files  = "PonyRouter/Classes", "PonyRouter/Classes/**", "PonyRouter/Classes/**/**", "PonyRouter/lasses/**/**/**", "PonyRouter/Classes/**/**/**/**"
 
   s.requires_arc = true
 
