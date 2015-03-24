@@ -19,7 +19,17 @@ typedef void(^PGRNodeExecutingBlock)(NSURL *sourceURL, NSDictionary *params, NSO
 @property (nonatomic, assign) BOOL isPrivate;
 
 /**
- *  标识，唯一
+ *  使用正则匹配
+ */
+@property (nonatomic, assign) BOOL usePattern;
+
+/**
+ *  xxx://yyy/ <-- xxx
+ */
+@property (nonatomic, copy) NSString *scheme;
+
+/**
+ *  xxx://yyy/ <-- yyy
  */
 @property (nonatomic, copy) NSString *identifier;
 
@@ -31,5 +41,10 @@ typedef void(^PGRNodeExecutingBlock)(NSURL *sourceURL, NSDictionary *params, NSO
 - (void)setExecutingBlock:(PGRNodeExecutingBlock)executingBlock;
 
 - (instancetype)initWithIdentifier:(NSString *)identifier executingBlock:(PGRNodeExecutingBlock)executingBlock;
+
+- (instancetype)initWithIdentifier:(NSString *)identifier
+                         scheme:(NSString *)scheme
+                     usePattern:(BOOL)usePattern
+                 executingBlock:(PGRNodeExecutingBlock)executingBlock;
 
 @end

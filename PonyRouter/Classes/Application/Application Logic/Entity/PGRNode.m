@@ -19,4 +19,15 @@
     return self;
 }
 
+- (instancetype)initWithIdentifier:(NSString *)identifier scheme:(NSString *)scheme usePattern:(BOOL)usePattern executingBlock:(PGRNodeExecutingBlock)executingBlock {
+    self = [super init];
+    if (self) {
+        self.identifier = identifier;
+        self.scheme = scheme;
+        self.usePattern = usePattern;
+        self.executingBlock = executingBlock;
+    }
+    return self;
+}
+
 @end

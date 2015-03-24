@@ -11,7 +11,7 @@
 
 @interface PGRNodeManager ()
 
-@property (nonatomic, copy) NSDictionary *nodes;
+@property (nonatomic, copy) NSArray *nodes;
 
 @end
 
@@ -21,19 +21,61 @@
 {
     self = [super init];
     if (self) {
-        self.nodes = @{};
+        self.nodes = @[];
     }
     return self;
 }
 
 - (void)addNode:(PGRNode *)node {
-    NSMutableDictionary *nodes = [self.nodes mutableCopy];
-    [nodes setObject:node forKey:node.identifier.lowercaseString];
+    NSMutableArray *nodes = [self.nodes mutableCopy];
+    [nodes addObject:node];
     self.nodes = nodes;
 }
 
 - (PGRNode *)nodeForURL:(NSURL *)URL {
-    return self.nodes[URL.host.lowercaseString];
+    __block PGRNode *node;
+    [self.nodes enumerateObjectsUsingBlock:^(PGRNode *obj, NSUInteger idx, BOOL *stop) {
+        if (!obj.usePattern) {
+            if (obj.scheme == nil ||
+                [[obj.scheme lowercaseString] isEqualToString:[URL.scheme lowercaseString]]) {
+                if ([[obj.identifier lowercaseString] isEqualToString:[URL.host lowercaseString]]) {
+                    node = obj;
+                    *stop = YES;
+                }
+            }
+        }
+        else {
+            BOOL schemeMatch = NO;
+            BOOL identifierMatch = NO;
+            
+            if (obj.scheme != nil) {
+                NSRegularExpression *schemeExpression = [[NSRegularExpression alloc]
+                                                         initWithPattern:obj.scheme
+                                                                 options:NSRegularExpressionCaseInsensitive
+                                                                   error:nil];
+                schemeMatch = [schemeExpression numberOfMatchesInString:URL.scheme
+                                                                options:NSMatchingReportCompletion
+                                                                  range:NSMakeRange(0, URL.scheme.length)];
+            }
+            else {
+                schemeMatch = YES;
+            }
+            if (obj.identifier != nil) {
+                NSRegularExpression *identifierExpression = [[NSRegularExpression alloc]
+                                                             initWithPattern:obj.identifier
+                                                             options:NSRegularExpressionCaseInsensitive
+                                                             error:nil];
+                identifierMatch = [identifierExpression numberOfMatchesInString:URL.host
+                                                                        options:NSMatchingReportCompletion
+                                                                          range:NSMakeRange(0, URL.host.length)];
+            }
+            if (schemeMatch && identifierMatch) {
+                node = obj;
+                *stop = YES;
+            }
+        }
+    }];
+    return node;
 }
 
 @end

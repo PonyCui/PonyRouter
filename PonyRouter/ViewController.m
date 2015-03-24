@@ -31,4 +31,9 @@
 //    [[PGRApplication sharedInstance] openURL:URL];
 }
 
+- (IBAction)handleSecondButtonTapped:(id)sender {
+    NSURL *URL = [NSURL URLWithString:@"test://ios.duowan.com"];
+    [[UIApplication sharedApplication] openURL:URL];
+}
+
 @end

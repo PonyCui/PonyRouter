@@ -22,6 +22,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [UIApplication pgr_swizzleUIApplicationMethod];
     [self addViewControllerNode];
+    [self addPatternNode];
     return YES;
 }
 
@@ -67,6 +68,13 @@
         UIViewController *viewController = [storyBoard instantiateViewControllerWithIdentifier:@"ViewController"];
         [(id)[[[[UIApplication sharedApplication] delegate] window] rootViewController]
          pushViewController:viewController animated:YES];
+    }];
+    [[PGRApplication sharedInstance] addNode:node];
+}
+
+- (void)addPatternNode {
+    PGRNode *node = [[PGRNode alloc] initWithIdentifier:@".*?" scheme:@"test" usePattern:YES executingBlock:^(NSURL *sourceURL, NSDictionary *params, NSObject *sourceObject) {
+        [[[UIAlertView alloc] initWithTitle:@"Hey!" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
     }];
     [[PGRApplication sharedInstance] addNode:node];
 }
