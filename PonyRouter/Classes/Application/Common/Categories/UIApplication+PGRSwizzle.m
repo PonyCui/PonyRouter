@@ -20,12 +20,13 @@
     method_exchangeImplementations(origMethod, replacingMethod);
 }
 
-- (void)swizzle_PGRopenURL:(NSURL *)URL {
+- (BOOL)swizzle_PGRopenURL:(NSURL *)URL {
     if ([[PGRApplication sharedInstance] canOpenURL:URL]) {
         [[PGRApplication sharedInstance] openURL:URL];
+        return YES;
     }
     else {
-        [self swizzle_PGRopenURL:URL];
+        return [self swizzle_PGRopenURL:URL];
     }
 }
 
