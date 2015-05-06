@@ -36,4 +36,11 @@
     [[UIApplication sharedApplication] openURL:URL];
 }
 
+- (IBAction)handleKissmeButtonTapped:(id)sender {
+    NSURL *URL = [NSURL URLWithString:@"demoApp://kissme/?someone=Pony"];
+    NSString *whoKissMe = [[PGRApplication sharedInstance] openURL:URL];
+    [[[UIAlertView alloc] initWithTitle:nil message:whoKissMe delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+}
+
+
 @end

@@ -33,8 +33,8 @@
 
 - (BOOL)canOpenURL:(NSURL *)URL;
 
-- (void)openURL:(NSURL *)URL;
+- (id)openURL:(NSURL *)URL;
 
-- (void)openURL:(NSURL *)URL sourceObject:(NSObject *)sourceObject;
+- (id)openURL:(NSURL *)URL sourceObject:(NSObject *)sourceObject;
 
 @end

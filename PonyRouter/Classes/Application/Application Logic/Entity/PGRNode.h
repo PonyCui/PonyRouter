@@ -10,6 +10,8 @@
 
 typedef void(^PGRNodeExecutingBlock)(NSURL *sourceURL, NSDictionary *params, NSObject *sourceObject);
 
+typedef id(^PGRNodeReturnableBlock)(NSURL *sourceURL, NSDictionary *params, NSObject *sourceObject);
+
 @interface PGRNode : NSObject
 
 /**
@@ -38,13 +40,30 @@ typedef void(^PGRNodeExecutingBlock)(NSURL *sourceURL, NSDictionary *params, NSO
  */
 @property (nonatomic, copy) PGRNodeExecutingBlock executingBlock;
 
+/**
+ *  路由被触发后，将执行此Block，同时返回Block返回的对象
+ */
+@property (nonatomic, copy) PGRNodeReturnableBlock returnableBlock;
+
 - (void)setExecutingBlock:(PGRNodeExecutingBlock)executingBlock;
 
-- (instancetype)initWithIdentifier:(NSString *)identifier executingBlock:(PGRNodeExecutingBlock)executingBlock;
+- (void)setReturnableBlock:(PGRNodeReturnableBlock)returnableBlock;
+
+- (instancetype)initWithIdentifier:(NSString *)identifier
+                    executingBlock:(PGRNodeExecutingBlock)executingBlock;
 
 - (instancetype)initWithIdentifier:(NSString *)identifier
                          scheme:(NSString *)scheme
                      usePattern:(BOOL)usePattern
                  executingBlock:(PGRNodeExecutingBlock)executingBlock;
+
+- (instancetype)initWithIdentifier:(NSString *)identifier
+                   returnableBlock:(PGRNodeReturnableBlock)returnableBlock;
+
+- (instancetype)initWithIdentifier:(NSString *)identifier
+                            scheme:(NSString *)scheme
+                        usePattern:(BOOL)usePattern
+                    returnableBlock:(PGRNodeReturnableBlock)returnableBlock;
+
 
 @end

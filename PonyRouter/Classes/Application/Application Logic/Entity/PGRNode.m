@@ -10,7 +10,8 @@
 
 @implementation PGRNode
 
-- (instancetype)initWithIdentifier:(NSString *)identifier executingBlock:(PGRNodeExecutingBlock)executingBlock {
+- (instancetype)initWithIdentifier:(NSString *)identifier
+                    executingBlock:(PGRNodeExecutingBlock)executingBlock {
     self = [super init];
     if (self) {
         self.identifier = identifier;
@@ -19,13 +20,40 @@
     return self;
 }
 
-- (instancetype)initWithIdentifier:(NSString *)identifier scheme:(NSString *)scheme usePattern:(BOOL)usePattern executingBlock:(PGRNodeExecutingBlock)executingBlock {
+- (instancetype)initWithIdentifier:(NSString *)identifier
+                            scheme:(NSString *)scheme
+                        usePattern:(BOOL)usePattern
+                    executingBlock:(PGRNodeExecutingBlock)executingBlock {
     self = [super init];
     if (self) {
         self.identifier = identifier;
         self.scheme = scheme;
         self.usePattern = usePattern;
         self.executingBlock = executingBlock;
+    }
+    return self;
+}
+
+- (instancetype)initWithIdentifier:(NSString *)identifier
+                   returnableBlock:(PGRNodeReturnableBlock)returnableBlock {
+    self = [super init];
+    if (self) {
+        self.identifier = identifier;
+        self.returnableBlock = returnableBlock;
+    }
+    return self;
+}
+
+- (instancetype)initWithIdentifier:(NSString *)identifier
+                            scheme:(NSString *)scheme
+                        usePattern:(BOOL)usePattern
+                   returnableBlock:(PGRNodeReturnableBlock)returnableBlock {
+    self = [super init];
+    if (self) {
+        self.identifier = identifier;
+        self.scheme = scheme;
+        self.usePattern = usePattern;
+        self.returnableBlock = returnableBlock;
     }
     return self;
 }

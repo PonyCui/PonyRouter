@@ -59,21 +59,41 @@
     [self.core.configurationManager.configure.schemes containsObject:URL.scheme]);
 }
 
-- (void)openURL:(NSURL *)URL {
-    [self openURL:URL sourceObject:nil];
+- (id)openURL:(NSURL *)URL {
+    return [self openURL:URL sourceObject:nil];
 }
 
-- (void)openURL:(NSURL *)URL sourceObject:(NSObject *)sourceObject {
+- (id)openURL:(NSURL *)URL sourceObject:(NSObject *)sourceObject {
     PGRNode *node = [self.core.nodeManager nodeForURL:URL];
     if (node == nil) {
         [[UIApplication sharedApplication] openURL:URL];
+        return nil;
     }
     else {
         if (self.core.configurationManager.configure.URLStyle == PGRURLStylePathInfo) {
-            node.executingBlock(URL, [URL pgr_parseAsPathInfo], sourceObject);
+            if (node.executingBlock != nil) {
+                node.executingBlock(URL, [URL pgr_parseAsPathInfo], sourceObject);
+            }
+            if (node.returnableBlock != nil) {
+                return node.returnableBlock(URL, [URL pgr_parseAsPathInfo], sourceObject);
+            }
+            else {
+                return nil;
+            }
         }
         else if (self.core.configurationManager.configure.URLStyle == PGRURLStyleQueryString) {
-            node.executingBlock(URL, [URL pgr_parseAsQueryString], sourceObject);
+            if (node.executingBlock != nil) {
+                node.executingBlock(URL, [URL pgr_parseAsQueryString], sourceObject);
+            }
+            if (node.returnableBlock != nil) {
+                return node.returnableBlock(URL, [URL pgr_parseAsQueryString], sourceObject);
+            }
+            else {
+                return nil;
+            }
+        }
+        else {
+            return nil;
         }
     }
 }
