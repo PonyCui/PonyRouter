@@ -48,11 +48,14 @@
             BOOL schemeMatch = NO;
             BOOL identifierMatch = NO;
             
-            if (obj.scheme != nil) {
+            if (URL.scheme == nil) {
+                schemeMatch = NO;
+            }
+            else if (obj.scheme != nil) {
                 NSRegularExpression *schemeExpression = [[NSRegularExpression alloc]
                                                          initWithPattern:obj.scheme
-                                                                 options:NSRegularExpressionCaseInsensitive
-                                                                   error:nil];
+                                                         options:NSRegularExpressionCaseInsensitive
+                                                         error:nil];
                 schemeMatch = [schemeExpression numberOfMatchesInString:URL.scheme
                                                                 options:NSMatchingReportCompletion
                                                                   range:NSMakeRange(0, URL.scheme.length)];
@@ -60,7 +63,11 @@
             else {
                 schemeMatch = YES;
             }
-            if (obj.identifier != nil) {
+            
+            if (URL.host == nil) {
+                identifierMatch = NO;
+            }
+            else if (obj.identifier != nil) {
                 NSRegularExpression *identifierExpression = [[NSRegularExpression alloc]
                                                              initWithPattern:obj.identifier
                                                              options:NSRegularExpressionCaseInsensitive
