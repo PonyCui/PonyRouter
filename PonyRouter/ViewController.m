@@ -11,13 +11,27 @@
 
 @interface ViewController ()
 
+@property (strong, nonatomic) IBOutlet UIWebView *webView;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    //NSURLConnection
+    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"demoApp://kissme/?someone=Pony"]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+        NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+    }];
+    
+    //WebView
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"demoApp://kissme/?someone=Pony"]]];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.webView loadHTMLString:@"Now, start an AJAX Request. <script src='https://lib.sinaapp.com/js/jquery/2.0.3/jquery-2.0.3.min.js'></script><script>$.get('demoApp://kissme/?someone=Pony', function(result){alert('Message From WebView : '+result)})</script>" baseURL:nil];
+    });
+    
 }
 
 - (void)didReceiveMemoryWarning {

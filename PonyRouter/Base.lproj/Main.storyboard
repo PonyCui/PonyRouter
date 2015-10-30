@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1077" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rEr-ZG-r1K">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F19a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rEr-ZG-r1K">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -32,7 +33,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUN-qh-tUh">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUN-qh-tUh">
                                 <rect key="frame" x="120" y="269" width="81" height="30"/>
                                 <state key="normal" title="Click here!!!">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -41,7 +42,7 @@
                                     <action selector="handleButtonTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="A1v-qI-wQt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQx-gG-IAe">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQx-gG-IAe">
                                 <rect key="frame" x="135" y="307" width="50" height="30"/>
                                 <state key="normal" title="Tap me">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -50,7 +51,7 @@
                                     <action selector="handleSecondButtonTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="RGv-nY-pc3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yxc-K1-G2g">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yxc-K1-G2g">
                                 <rect key="frame" x="133" y="345" width="55" height="30"/>
                                 <state key="normal" title="Kiss me">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -59,27 +60,33 @@
                                     <action selector="handleKissmeButtonTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Dkp-7Y-iME"/>
                                 </connections>
                             </button>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zzv-ey-lxS">
+                                <rect key="frame" x="30" y="94" width="260" height="145"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="GUN-qh-tUh" firstAttribute="top" secondItem="zzv-ey-lxS" secondAttribute="bottom" constant="30" id="6C2-g3-CxP"/>
+                            <constraint firstItem="zzv-ey-lxS" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="30" id="FcX-10-hRX"/>
+                            <constraint firstAttribute="trailing" secondItem="zzv-ey-lxS" secondAttribute="trailing" constant="30" id="Ja2-1S-puv"/>
                             <constraint firstAttribute="centerX" secondItem="GUN-qh-tUh" secondAttribute="centerX" id="Kj4-vX-bJQ"/>
                             <constraint firstItem="aQx-gG-IAe" firstAttribute="top" secondItem="GUN-qh-tUh" secondAttribute="bottom" constant="8" id="Nr8-9Q-wVC"/>
                             <constraint firstAttribute="centerY" secondItem="GUN-qh-tUh" secondAttribute="centerY" id="bvo-Nr-VRd"/>
                             <constraint firstItem="Yxc-K1-G2g" firstAttribute="top" secondItem="aQx-gG-IAe" secondAttribute="bottom" constant="8" id="cBg-x4-A2N"/>
+                            <constraint firstItem="zzv-ey-lxS" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="30" id="sK0-LU-Fbb"/>
                             <constraint firstAttribute="centerX" secondItem="aQx-gG-IAe" secondAttribute="centerX" id="xxq-9e-fkQ"/>
                             <constraint firstItem="aQx-gG-IAe" firstAttribute="centerX" secondItem="Yxc-K1-G2g" secondAttribute="centerX" id="ywK-HG-kcd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Demo" id="hXJ-pC-SNM"/>
+                    <connections>
+                        <outlet property="webView" destination="zzv-ey-lxS" id="Hor-7L-NjK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139" y="96"/>
         </scene>
     </scenes>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

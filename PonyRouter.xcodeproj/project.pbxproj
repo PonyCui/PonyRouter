@@ -21,6 +21,7 @@
 		630738831AA851000003F1D3 /* PGRConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 630738821AA851000003F1D3 /* PGRConfiguration.m */; };
 		630738861AA851710003F1D3 /* PGRConfigurationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 630738851AA851710003F1D3 /* PGRConfigurationManager.m */; };
 		630738891AA852D30003F1D3 /* PGRCore+PGRPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 630738881AA852D30003F1D3 /* PGRCore+PGRPrivate.m */; };
+		6324CC731BE30D84003CADBC /* PGRURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 6324CC721BE30D84003CADBC /* PGRURLProtocol.m */; };
 		F089B3051AA89CE700A6D091 /* NSURL+PGRURLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F089B3041AA89CE700A6D091 /* NSURL+PGRURLParser.m */; };
 		F089B3081AA89D1300A6D091 /* UIApplication+PGRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = F089B3071AA89D1300A6D091 /* UIApplication+PGRSwizzle.m */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,8 @@
 		630738851AA851710003F1D3 /* PGRConfigurationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGRConfigurationManager.m; sourceTree = "<group>"; };
 		630738871AA852D30003F1D3 /* PGRCore+PGRPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PGRCore+PGRPrivate.h"; sourceTree = "<group>"; };
 		630738881AA852D30003F1D3 /* PGRCore+PGRPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PGRCore+PGRPrivate.m"; sourceTree = "<group>"; };
+		6324CC711BE30D84003CADBC /* PGRURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGRURLProtocol.h; sourceTree = "<group>"; };
+		6324CC721BE30D84003CADBC /* PGRURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGRURLProtocol.m; sourceTree = "<group>"; };
 		F089B3031AA89CE700A6D091 /* NSURL+PGRURLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+PGRURLParser.h"; sourceTree = "<group>"; };
 		F089B3041AA89CE700A6D091 /* NSURL+PGRURLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+PGRURLParser.m"; sourceTree = "<group>"; };
 		F089B3061AA89D1300A6D091 /* UIApplication+PGRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+PGRSwizzle.h"; sourceTree = "<group>"; };
@@ -194,6 +197,8 @@
 				6307387F1AA8505D0003F1D3 /* PGRNodeManager.m */,
 				630738841AA851710003F1D3 /* PGRConfigurationManager.h */,
 				630738851AA851710003F1D3 /* PGRConfigurationManager.m */,
+				6324CC711BE30D84003CADBC /* PGRURLProtocol.h */,
+				6324CC721BE30D84003CADBC /* PGRURLProtocol.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -341,6 +346,7 @@
 				630738781AA84F590003F1D3 /* PGRCore.m in Sources */,
 				630738831AA851000003F1D3 /* PGRConfiguration.m in Sources */,
 				630738801AA8505D0003F1D3 /* PGRNodeManager.m in Sources */,
+				6324CC731BE30D84003CADBC /* PGRURLProtocol.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
