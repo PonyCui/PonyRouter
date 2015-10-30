@@ -1,7 +1,7 @@
 # PonyRouter
 
 There's a better way lets you handle the whole application data transferring.
-We faced lots of application lack of beautiful code, the modules dependency really! really! pity.
+I seen lots of application lack of beautiful code, the modules dependency really! really! pity.
 
 Think about this, if you wonder call a class method, you must import the class, and then alloc or use the class singleton, and call it's member or method. You don't event know that, if the class changes sometime. And you imported the class, you also imported the class dependencies. That's not good!
 
@@ -83,7 +83,7 @@ NSURL *URL = [NSURL URLWithString:@"demoApp://sayhello/?k1=v1&k2=v2"];
     NSLog(@"%@",params);
 }];
 /*
- Conlose loged:
+ Conlose logded:
     2015-10-30 11:19:52.216 PonyRouter[76507:948438] {
         k1 = v1;
         k2 = v2;
@@ -122,3 +122,7 @@ PonyRouter add a hook to URL Protocol, so, you could send request via NSURLConne
 It's a simple way to deliver message from webView to Application.
 
 Do not worry about the main thread blocking, it will call as a GCD async thread.
+
+### Installation
+
+```pod "PonyRouter"```

@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "PonyRouter"
-  s.version      = "1.1.1"
+  s.version      = "1.2.0"
   s.summary      = "Application Global Router"
 
   s.description  = <<-DESC
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, "5.0"
 
-  s.source       = { :git => "https://github.com/PonyGroup/PonyRouter.git", :tag => "1.1.1" }
+  s.source       = { :git => "https://github.com/PonyGroup/PonyRouter.git", :tag => "1.2.0" }
 
   s.source_files  = "PonyRouter/Classes", "PonyRouter/Classes/**", "PonyRouter/Classes/**/**", "PonyRouter/lasses/**/**/**", "PonyRouter/Classes/**/**/**/**"
 
