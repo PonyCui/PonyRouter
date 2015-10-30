@@ -32,29 +32,33 @@
 }
 
 - (void)startLoading {
-    id responseObject = [[PGRApplication sharedInstance] openURL:self.request.URL];
-    if ([responseObject isKindOfClass:[NSString class]]) {
-        NSData *data = [(NSString *)responseObject dataUsingEncoding:NSUTF8StringEncoding];
-        [[self client] URLProtocol:self
-                didReceiveResponse:[self PGRResponse:@"text/plain" contentLength:data.length]
-                cacheStoragePolicy:NSURLCacheStorageNotAllowed];
-        [[self client] URLProtocol:self
-                       didLoadData:data];
-        [[self client] URLProtocolDidFinishLoading:self];
-    }
-    else if ([responseObject isKindOfClass:[NSData class]]) {
-        [[self client] URLProtocol:self
-                didReceiveResponse:[self PGRResponse:@"application/octet-stream" contentLength:[responseObject length]]
-                cacheStoragePolicy:NSURLCacheStorageNotAllowed];
-        [[self client] URLProtocol:self
-                       didLoadData:responseObject];
-        [[self client] URLProtocolDidFinishLoading:self];
-    }
-    else {
-        [[self client] URLProtocol:self didFailWithError:[NSError errorWithDomain:@"PonyRouter"
-                                                                             code:500
-                                                                         userInfo:@{}]];
-    }
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        id responseObject = [[PGRApplication sharedInstance] openURL:self.request.URL];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if ([responseObject isKindOfClass:[NSString class]]) {
+                NSData *data = [(NSString *)responseObject dataUsingEncoding:NSUTF8StringEncoding];
+                [[self client] URLProtocol:self
+                        didReceiveResponse:[self PGRResponse:@"text/plain" contentLength:data.length]
+                        cacheStoragePolicy:NSURLCacheStorageNotAllowed];
+                [[self client] URLProtocol:self
+                               didLoadData:data];
+                [[self client] URLProtocolDidFinishLoading:self];
+            }
+            else if ([responseObject isKindOfClass:[NSData class]]) {
+                [[self client] URLProtocol:self
+                        didReceiveResponse:[self PGRResponse:@"application/octet-stream" contentLength:[responseObject length]]
+                        cacheStoragePolicy:NSURLCacheStorageNotAllowed];
+                [[self client] URLProtocol:self
+                               didLoadData:responseObject];
+                [[self client] URLProtocolDidFinishLoading:self];
+            }
+            else {
+                [[self client] URLProtocol:self didFailWithError:[NSError errorWithDomain:@"PonyRouter"
+                                                                                     code:500
+                                                                                 userInfo:@{}]];
+            }
+        });
+    });
 }
 
 - (void)stopLoading {
