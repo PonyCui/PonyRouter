@@ -10,6 +10,6 @@
 
 @interface UIApplication (PGRSwizzle)
 
-+ (void)pgr_swizzleUIApplicationMethod;
+@property(nonatomic, assign)BOOL routerEnabled;
 
 @end
