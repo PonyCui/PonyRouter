@@ -20,7 +20,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [UIApplication pgr_swizzleUIApplicationMethod];
+
     [self addViewControllerNode];
     [self addPatternNode];
     [self addReturnableNode];
